@@ -6,20 +6,8 @@
  * @date 19.04.2016
  */
 namespace skeeks\cms\sshConsole\controllers;
-use skeeks\cms\helpers\UrlHelper;
-use skeeks\cms\models\Search;
-use skeeks\cms\modules\admin\actions\AdminAction;
-use skeeks\cms\modules\admin\controllers\helpers\rules\NoModel;
-use skeeks\cms\modules\admin\models\forms\SshConsoleForm;
-use skeeks\cms\modules\admin\widgets\ActiveForm;
-use skeeks\sx\Dir;
-use yii\data\ArrayDataProvider;
-use yii\filters\VerbFilter;
-use yii\grid\GridView;
-use yii\helpers\ArrayHelper;
-use yii\helpers\Html;
-use yii\helpers\Url;
 
+use skeeks\cms\modules\admin\controllers\AdminController;
 use Yii;
 use yii\web\Response;
 
@@ -38,9 +26,9 @@ class AdminSshController extends AdminController
 
     public function actionConsole()
     {
-        return $this->render($this->action->id, [
-            'action' => $this->action
-        ]);
+        $this->layout = '@skeeks/cms/sshConsole/views/layouts/clean';
+
+        return $this->render($this->action->id);
     }
 
     public function actionIndex()

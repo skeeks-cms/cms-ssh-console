@@ -19,11 +19,6 @@ class SshConsoleWidget extends Widget
     public $consoleHeight       = "600px";
     public $consoleWidth        = "100%";
 
-    public $enabledTabs             = Cms::BOOL_Y;
-    public $enabledTabFastCmd       = Cms::BOOL_Y;
-    public $enabledTabHelp          = Cms::BOOL_Y;
-    public $enabledTabCmds          = Cms::BOOL_Y;
-
     public $iframeId            = "";
 
     public function init()

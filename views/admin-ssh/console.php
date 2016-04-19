@@ -1,5 +1,4 @@
 <?php
-$action->controller->layout = '@skeeks/cms/views/layouts/clean';
 /**
  * Console
  *
@@ -258,7 +257,7 @@ $autocomplete = [
 
 <?
 /* @var $this yii\web\View */
-\skeeks\cms\modules\admin\assets\AdminSshConsoleAsset::register($this);
+\skeeks\cms\sshConsole\assets\AdminSshConsoleAsset::register($this);
 
 $options = [
     'currentDirName'    => $currentDirName,

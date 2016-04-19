@@ -8,45 +8,16 @@
 /* @var $this yii\web\View */
 /* @var $widget \skeeks\cms\widgets\SshConsoleWidget */
 
-$items = [];
-
-/*if ($widget->enabledTabFastCmd == \skeeks\cms\components\Cms::BOOL_Y)
-{
-    $items[] = [
-        'label' => '<i class="glyphicon glyphicon-question-sign"></i> '.\Yii::t('app','quick commands'),
-        'encode' => false,
-        'content' => $this->render('_fast-cmd', ['widget' => $this]),
-        'active' => true
-    ];
-}*/
-
-/*if ($widget->enabledTabHelp == \skeeks\cms\components\Cms::BOOL_Y)
-{
-    $items[] = [
-        'label' => '<i class="glyphicon glyphicon-question-sign"></i> '.\skeeks\cms\Module::t('v2','Help'),
-        'encode' => false,
-        'content' => $this->render('_help', ['widget' => $this]),
-    ];
-}*/
-
-if ($widget->enabledTabCmds == \skeeks\cms\components\Cms::BOOL_Y)
-{
-    $items[] = [
-        'label' => '<i class="glyphicon glyphicon-question-sign"></i> '.\Yii::t('app','Available commands'),
-        'encode' => false,
-        'active' => true,
-        'content' => $this->render('_sx-cms-cmds', ['widget' => $this]),
-    ];
-}
-
-if ($widget->enabledTabs != \skeeks\cms\components\Cms::BOOL_Y)
-{
-    $items = [];
-}
+$items[] = [
+    'label' => '<i class="glyphicon glyphicon-question-sign"></i> '.\Yii::t('app','Available commands'),
+    'encode' => false,
+    'active' => true,
+    'content' => $this->render('_sx-cms-cmds', ['widget' => $this]),
+];
 ?>
 <div class="sx-widget-ssh-console" id="<?= $widget->id; ?>">
     <div class="sx-blocked-area">
-        <iframe id="<?= $widget->iframeId; ?>" style="border: none; width: <?= $widget->consoleWidth; ?>; height: <?= $widget->consoleHeight; ?>;" data-src="<?= \skeeks\cms\helpers\UrlHelper::construct('/admin/ssh/console')->enableAdmin()->toString(); ?>"></iframe>
+        <iframe id="<?= $widget->iframeId; ?>" style="border: none; width: <?= $widget->consoleWidth; ?>; height: <?= $widget->consoleHeight; ?>;" data-src="<?= \skeeks\cms\helpers\UrlHelper::construct(['/sshConsole/admin-ssh/console'])->enableAdmin()->toString(); ?>"></iframe>
     </div>
 
     <? if ($items) : ?>
